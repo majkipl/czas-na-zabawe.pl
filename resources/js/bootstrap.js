@@ -6,6 +6,14 @@ window._ = require('lodash');
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
+import * as Popper from 'popper.js';
+window.Popper = Popper;
+
+import $ from 'jquery';
+window.$ = window.jQuery = $;
+
+import 'bootstrap';
+
 window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -40,3 +48,5 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+

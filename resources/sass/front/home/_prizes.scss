@@ -1,0 +1,138 @@
+#prizes {
+  .ngl {
+    background-image: url('/images/ngl-foto-compressor.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 400px;
+    margin-bottom: 15px;
+    overflow: hidden;
+
+    .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 30px;
+      background-color: rgba(3, 12, 62, 0.8);
+
+      .tropical {
+        background-image: url('/images/tropical-compressor.png');
+        background-repeat: no-repeat;
+        background-position: top right;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+    }
+
+    h5 {
+      color: $gold;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      padding-left: 100px;
+      color: $white;
+      position: relative;
+      width: 350px;
+      margin-bottom: 20px;
+
+      span {
+        font-size: 75px;
+        font-weight: 900;
+        color: $gold;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 75px;
+        line-height: 75px;
+      }
+    }
+  }
+
+  .nty {
+    background-image: url(/images/nty-foto-compressor.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 300px;
+    margin-bottom: 15px;
+
+    .content {
+      padding: 30px 15px;
+
+      .tropical {}
+    }
+
+    h5 {
+      color: $gold;
+      margin-bottom: 20px;
+    }
+
+    h4 {
+      color: $gold;
+      width: 50%;
+      margin-bottom: 20px;
+
+      span {
+        font-size: 60px;
+        font-weight: 900;
+        color: $gold;
+        display: block;
+      }
+    }
+  }
+
+  .ngw {
+    background-image: url('/images/ngw-foto-compressor.jpg');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: cover;
+    min-height: 300px;
+    margin-bottom: 15px;
+
+    .content {
+      padding: 30px 15px;
+
+      .tropical {}
+    }
+
+    h5 {
+      margin-bottom: 56px;
+    }
+
+    h4 {
+      width: 50%;
+      margin-bottom: 56px;
+
+      span {
+        font-size: 60px;
+        font-weight: 900;
+        display: block;
+      }
+    }
+  }
+
+  .cta-button {
+    text-transform: none;
+  }
+}
+
+
+@media (max-width: 576px) {
+  #prizes .ngl {
+    h3 {
+      width: 100%;
+    }
+
+    .content {
+      height: 100%;
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  #prizes .ngl h3 {
+    width: 350px;
+  }
+}

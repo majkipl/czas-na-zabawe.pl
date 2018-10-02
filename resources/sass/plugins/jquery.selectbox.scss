@@ -1,0 +1,130 @@
+.sbHolder {
+  background-color: #2d2d2d;
+  border: 1px solid #515151;
+  font-size: 1.8rem;
+  font-weight: normal;
+  height: 3.4rem;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+
+  &:focus .sbSelector {
+  }
+
+  .sbToggle {
+    display: block;
+    height: 3.2rem;
+    outline: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 3.4rem;
+    border-left: 1px solid #515151;
+
+    &:before {
+    }
+
+    &:hover {
+    }
+
+    &.sbToggleOpen {
+      &:hover {
+      }
+
+      &:before {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .sbSelector {
+    display: block;
+    height: calc(100%);
+    left: 0;
+    line-height: 1;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: calc(100% - 3.2rem - 1px);
+    outline: none;
+    padding: 0.7rem 15px;
+
+    &:link,
+    &:visited,
+    &:hover {
+      color: #515151;
+      outline: none;
+      text-decoration: none;
+    }
+  }
+
+  .sbOptions {
+    background-color: #2d2d2d;
+    border: 0.1rem solid #515151;
+    list-style: none;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    z-index: 1;
+    overflow-y: auto;
+    top: 3.2rem !important;
+
+    li {
+      padding: 0;
+    }
+
+    a {
+      border-bottom: dotted 1px #515151;
+      display: block;
+      outline: none;
+      padding: 7px 0 7px 15px;
+
+      &:link,
+      &:visited {
+        color: #515151;
+        text-decoration: none;
+      }
+
+      &:hover,
+      &:focus,
+      &.sbFocus {
+        color: #ebb52d;
+      }
+    }
+
+    li.last a {
+      border-bottom: none;
+    }
+
+    .sbDisabled {
+      border-bottom: dotted 1px #515151;
+      color: #999;
+      display: block;
+      padding: 7px 0 7px 3px;
+    }
+
+    .sbGroup {
+      border-bottom: dotted 1px #515151;
+      color: #ebb52d;
+      display: block;
+      font-weight: bold;
+      padding: 7px 0 7px 3px;
+    }
+
+    .sbSub {
+      padding-left: 17px;
+    }
+  }
+}
+
+.sbHolderDisabled {
+  background-color: #3c3c3c;
+  border: solid 1px #515151;
+
+  .sbHolder,
+  .sbToggle {
+  }
+}

@@ -1,0 +1,54 @@
+#contact {
+  label.css-label {
+    font-weight: 400;
+    color: $black;
+    padding-left: 80px;
+    min-height: 33px;
+    line-height: 1.2;
+    font-size: 15px;
+
+    &:before {
+      content: '';
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: all 0.5s ease;
+      border: 2px solid $midnightBlue;
+      box-shadow: 0 0 5px $boxShadowColor;
+    }
+
+    &:hover:before {
+      box-shadow: 0 0 20px 7px $boxShadowColor;
+    }
+  }
+
+  input[type=checkbox].css-checkbox {
+    position: absolute;
+    z-index: -1000;
+    left: -1000px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+
+    + label.css-label {
+      padding-left: 60px;
+      background-repeat: no-repeat;
+      background-position: 5px center;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+      position: relative;
+      padding-top: 0;
+    }
+
+    &:checked + label.css-label:before {
+      background-color: $midnightBlue;
+    }
+  }
+}

@@ -1,0 +1,144 @@
+#baner {
+    padding-top: 106px;
+
+    #s1, #s2, #s3 {
+        height: 560px;
+    }
+
+    .content-bg {
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #s1 .content-bg {
+        background-image: url('/images/baner/tropical-island-compressor.jpg');
+    }
+
+    #s2 .content-bg {
+        background-image: url('/images/baner/slider-main-home-and-you.jpg');
+    }
+
+    #s3 .content-bg {
+        background-image: url('/images/baner/instax-small.jpg');
+    }
+
+    .content {
+        background-color: $gold;
+        padding: 45px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        p {
+            color: $fireEngineRed;
+
+            &.ha {
+                font-size: 44px;
+                font-weight: 700;
+                text-transform: uppercase;
+                line-height: 1;
+            }
+        }
+    }
+
+    img {
+        width: auto;
+        max-width: 100%;
+    }
+
+    .item > img {
+        top: 60px;
+        left: 50px;
+        position: absolute;
+    }
+
+    .steps .step {
+        p {
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        color: $midnightBlue;
+        background-color: $white;
+        cursor: pointer;
+        transition: all 0.4s ease;
+
+        &.active {
+            background-color: $midnightBlue;
+            color: $gold;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .content {
+            background-color: rgba(239, 199, 0, 0.9);
+
+            p.ha {
+                font-size: 26px;
+            }
+        }
+    }
+
+    @media (min-width: 576px) {
+        .item > img {
+            width: 30%;
+        }
+
+        .content {
+            background-color: rgba(239, 199, 0, 0.9);
+
+            p.ha {
+                font-size: 32px;
+            }
+        }
+    }
+
+    @media (min-width: 768px) {
+        .item > img {
+            width: 30%;
+        }
+
+        .content {
+            background-color: $yellow;
+
+            p.ha {
+                font-size: 36px;
+            }
+        }
+    }
+
+    @media (min-width: 992px) {
+        .item > img {
+            width: 40%;
+        }
+
+        .content p.ha {
+            font-size: 40px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        #s1, #s2, #s3 {
+            background-position: center;
+        }
+
+        .item > img {
+            width: auto;
+        }
+
+        .content p.ha {
+            font-size: 44px;
+        }
+    }
+
+    @media (min-width: 1600px) {
+        #s1, #s2, #s3 {
+            background-position: left top;
+        }
+    }
+}

@@ -1,0 +1,57 @@
+#products {
+  background-color: $darkNavy;
+  color: $white;
+
+  .item {
+    .text {
+      box-shadow: 0 0 1px 1px $skyBlue;
+      transition: all 0.4s ease;
+      background: url('/images/product-bg-compressor.png') top center/cover no-repeat;
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: 0 0 15px 1px $skyBlue;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          line-height: 1;
+          margin-bottom: 5px;
+          background: url('/images/li-compressor.png') 0 5px no-repeat;
+          padding: 0 15px 0 20px;
+        }
+      }
+    }
+  }
+
+  .cta-button {
+    font-size: 30px;
+  }
+
+  .owl-carousel-prev, .owl-carousel-next {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    img {
+      max-width: 100%;
+      transform: rotate(-180deg);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .owl-carousel-prev, .owl-carousel-next {
+      display: none;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .owl-carousel-prev, .owl-carousel-next {
+      display: block;
+    }
+  }
+}

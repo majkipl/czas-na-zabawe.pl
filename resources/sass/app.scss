@@ -1,1 +1,38 @@
+@import "bootstrap/scss/bootstrap";
+@import "owl.carousel/dist/assets/owl.carousel.css";
+@import "owl.carousel/dist/assets/owl.theme.default.css";
+@import "aos/src/sass/aos";
+@import "./plugins/bootstrap-datetimepicker";
+
+@import "./front/variables";
+
+
+@import "./font/glyphicon";
+
+@import "./plugins/jquery.selectbox";
+
+@import "front/main";
+@import "front/loader";
+@import "front/common/top";
+@import "front/common/popup";
+@import "front/common/partners";
+@import "front/common/cookies";
+@import "front/common/footer";
+@import "front/common/libum";
+
+@import "front/home/baner";
+@import "front/home/steps";
+@import "front/home/prizes";
+@import "front/home/take";
+@import "front/home/contact";
+@import "front/home/applications";
+@import "front/home/tips";
+
+@import "front/form";
+@import "front/statute";
+@import "front/products";
+@import "front/application";
+@import "front/tip";
+@import "front/error";
+@import "front/thx";
 

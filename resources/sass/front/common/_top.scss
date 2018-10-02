@@ -1,0 +1,42 @@
+section#top {
+    background-color: $midnightBlue;
+
+    &.fixed {
+        position: fixed;
+        z-index: 9;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: transparent;
+    }
+
+    .navbar {
+        padding-top: 24px;
+        padding-bottom: 24px;
+        -webkit-transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        -ms-transition: all 0.4s ease;
+        -o-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+    }
+
+    .container-navbar-menu {
+        background-color: $midnightBlue;
+    }
+
+    .navbar .navbar-nav .nav-item {
+        .nav-link {
+            color: $white;
+            font-weight: 700;
+        }
+
+        &.active .nav-link {
+            color: $gold;
+        }
+    }
+
+    &.small .navbar {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+}

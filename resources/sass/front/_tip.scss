@@ -1,0 +1,33 @@
+#tip {
+  padding-top: 106px;
+
+  .container {
+    min-height: 50vh;
+  }
+
+  .media {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+
+  .tip-nav {
+    min-height: 150px;
+
+    .c-table {
+      background-color: $lightGray5;
+    }
+
+    a {
+      width: 100%;
+      display: block;
+      font-size: 20px;
+      font-weight: 700;
+      padding: 0 30px;
+    }
+
+    &.transparent .c-table {
+      background-color: transparent;
+    }
+  }
+}

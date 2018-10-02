@@ -1,0 +1,64 @@
+#applications {
+  .list .application {
+    position: relative;
+    margin-bottom: 30px;
+
+    a {
+      display: block;
+    }
+
+    span {
+      background-color: $lightGray4;
+      display: block;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      padding: 15px;
+    }
+
+    .video, .image {
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+    }
+  }
+
+  .cta-button {
+    font-size: 30px;
+  }
+
+  input {
+    border: 1px solid $darkNavy;
+    color: $white;
+    font-size: 16px;
+    text-align: left;
+    padding: 15px 15px 15px 45px;
+    margin: 0;
+    background-color: $darkNavy;
+
+    &[placeholder] {
+      &::-webkit-input-placeholder, &:-moz-placeholder, &::-moz-placeholder, &:-ms-input-placeholder {
+        color: $white;
+      }
+    }
+
+    + .submit {
+      height: 16px;
+      width: 16px;
+      position: absolute;
+      left: 30px;
+      top: 50%;
+      margin-top: -8px;
+      background-image: url('/images/find.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  #applications input {
+    width: calc(100% - 60px);
+  }
+}

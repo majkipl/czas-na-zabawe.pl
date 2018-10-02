@@ -1,0 +1,188 @@
+footer {
+  background-color: $darkNavy;
+  color: $white;
+
+  .contact {
+    display: inline-block;
+    margin: 0 10px 0 0;
+    padding: 0 0 0 0;
+    width: 44px;
+    height: 44px;
+    background-size: 100% auto;
+    background: $white none;
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+
+    &:before {
+      display: block;
+      text-align: center;
+      word-wrap: break-word;
+      vertical-align: bottom;
+      color: $midnightBlue;
+      -webkit-transition: all 0.25s ease;
+      -moz-transition: all 0.25s ease;
+      -ms-transition: all 0.25s ease;
+      -o-transition: all 0.25s ease;
+      transition: all 0.25s ease;
+      background-size: 100% auto;
+      width: calc(44px * 1);
+      height: calc(44px * 1);
+      line-height: calc(44px * 1);
+      font-family: $glyphiconHalflings;
+      font-size: 1.32em;
+      content: "\e111";
+    }
+  }
+
+  .facebook {
+    display: inline-block;
+    margin: 0 10px 0 0;
+    padding: 0 0 0 0;
+    width: 44px;
+    height: 44px;
+    background-size: 100% auto;
+    background: $white none;
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+
+    &:before {
+      display: block;
+      text-align: center;
+      word-wrap: break-word;
+      vertical-align: bottom;
+      color: $midnightBlue;
+      -webkit-transition: all 0.25s ease;
+      -moz-transition: all 0.25s ease;
+      -ms-transition: all 0.25s ease;
+      -o-transition: all 0.25s ease;
+      transition: all 0.25s ease;
+      background-size: 100% auto;
+      width: calc(44px * 1);
+      height: calc(44px * 1);
+      line-height: calc(44px * 1);
+      font-family: $glyphiconHalflings;
+      font-size: 1.32em;
+      background-image: url('/images/svg/facebook-single.svg');
+      background-position: left bottom;
+      background-repeat: no-repeat;
+      content: '';
+    }
+  }
+
+  .newsletter {
+    height: 44px;
+    display: inline-block;
+    line-height: 44px;
+    position: relative;
+    padding-left: 60px;
+
+    span {
+      display: block;
+      padding: 0 0 0 0;
+      width: 44px;
+      height: 44px;
+      background-size: 100% auto;
+      background: $white none;
+      -webkit-transition: all 0.25s ease;
+      -moz-transition: all 0.25s ease;
+      -ms-transition: all 0.25s ease;
+      -o-transition: all 0.25s ease;
+      transition: all 0.25s ease;
+      position: absolute;
+      top: 50%;
+      margin: -22px 10px 0 0;
+      left: 0;
+
+      &:before {
+        display: block;
+        text-align: center;
+        word-wrap: break-word;
+        vertical-align: bottom;
+        color: $midnightBlue;
+        -webkit-transition: all 0.25s ease;
+        -moz-transition: all 0.25s ease;
+        -ms-transition: all 0.25s ease;
+        -o-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+        background-size: 100% auto;
+        width: calc(44px * 1);
+        height: calc(44px * 1);
+        line-height: calc(44px * 1);
+        font-family: $glyphiconHalflings;
+        font-size: 1.32em;
+        content: "\2709";
+      }
+    }
+  }
+
+  .socials a {
+    display: inline-block;
+    margin: 0 10px 0 0;
+    padding: 0 0 0 0;
+    background-size: 100% auto;
+    background-color: $white;
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    width: calc(44px * 1);
+    height: calc(44px * 1);
+    background-position: left top;
+    background-repeat: no-repeat;
+  }
+
+  .fb {
+    background-image: url('/images/svg/facebook.svg');
+  }
+
+  .gp {
+    background-image: url('/images/svg/google-plus.svg');
+  }
+
+  .in {
+    background-image: url('/images/svg/linkedin.svg');
+  }
+
+  .tw {
+    background-image: url('/images/svg/twitter.svg');
+  }
+
+  .xi {
+    background-image: url('/images/svg/xing.svg');
+  }
+
+  h6 {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  footer {
+    .contact:before, .facebook:before {
+      display: inline-block;
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  footer {
+    .contact:before, .facebook:before {
+      display: inline-block;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  footer {
+    .contact:before, .facebook:before {
+      display: block;
+    }
+  }
+}

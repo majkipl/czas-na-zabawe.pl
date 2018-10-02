@@ -1,0 +1,240 @@
+#form {
+  padding-top: 106px;
+
+  p {
+    font-size: 16px;
+    color: $darkNavy;
+    margin-bottom: 10px;
+  }
+
+  .field {
+    margin-bottom: 15px;
+  }
+
+  .sbHolder {
+    border: 1px solid $lightGray2;
+    width: 100%;
+    background: transparent;
+    box-shadow: none;
+    line-height: 1;
+    height: 48px;
+    text-align: left;
+    font-weight: 300;
+    transition: all 0.5s ease;
+
+    &.focus {
+      box-shadow: 0 0 20px 7px $boxShadowColor;
+    }
+  }
+
+  .sbToggle {
+    background: url(/images/svg/select-arrow.svg) center center no-repeat;
+    width: 48px;
+    height: 48px;
+    transition: all 0.5s ease;
+    border: 0;
+    background-size: 20px;
+  }
+
+  .sbHolder.focus .sbToggle {
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+  }
+
+  .sbSelector {
+    &:link, &:visited, &:hover {
+      width: calc(100% - 40px);
+      background: transparent;
+      box-shadow: none;
+      line-height: 48px;
+      padding: 0 0 0 15px;
+      height: 48px;
+      text-align: left;
+      font-weight: 400;
+      transition: all 0.5s ease;
+      font-size: 15px;
+      color: $black;
+      border: 0;
+    }
+  }
+
+  .sbOptions {
+    background-color: $white;
+    width: calc(100% + 2px);
+    border: 1px solid $lightGray2;
+    z-index: 101;
+
+    a {
+      color: $black;
+      font-size: 15px;
+      border-bottom: dotted 1px $gray;
+      font-family: "din-2014", sans-serif;
+
+      &:hover {
+        color: $gray;
+      }
+    }
+  }
+
+  .file-uploads {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .thumbs {
+      margin-bottom: 30px;
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .info {
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+      text-align: center;
+      box-shadow: 0 0 5px $boxShadowColor;
+      width: 100%;
+      min-height: 200px;
+      float: left;
+      position: relative;
+      background-repeat: no-repeat;
+      background-size: cover;
+      transition: all 0.5s ease;
+      border: 1px solid $plum;
+      padding: 10px 15px;
+
+      img {
+        max-width: 48px;
+        margin-bottom: 15px;
+      }
+    }
+
+    .hidden {
+      display: none;
+
+      img {
+        margin: 0 auto;
+        max-width: 300px;
+        display: block;
+      }
+    }
+
+    .uploads-d-none {
+      overflow: hidden;
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  label.css-label {
+    font-weight: 400;
+    color: $black;
+    padding-left: 80px;
+    min-height: 33px;
+    margin-top: 40px;
+    line-height: 1.2;
+    font-size: 15px;
+
+    &:before {
+      content: '';
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: all 0.5s ease;
+      border: 2px solid $midnightBlue;
+      box-shadow: 0 0 5px $boxShadowColor;
+    }
+
+    &:hover:before {
+      box-shadow: 0 0 20px 7px $boxShadowColor;
+    }
+  }
+
+  input[type=checkbox].css-checkbox {
+    position: absolute;
+    z-index: -1000;
+    left: -1000px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+
+    + label.css-label {
+      padding-left: 60px;
+      background-repeat: no-repeat;
+      background-position: 5px center;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+      position: relative;
+      margin-top: 40px;
+      padding-top: 0;
+    }
+
+    &:checked + label.css-label:before {
+      background-color: $midnightBlue;
+    }
+  }
+
+  .submit {
+    background-color: $gold;
+    color: $midnightBlue;
+    font-size: 30px;
+    font-weight: 700;
+    padding: 15px;
+    text-align: center;
+    margin-top: 10px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    display: inline-block;
+    text-transform: uppercase;
+  }
+
+  .error-post:not(:empty) {
+    width: 100%;
+    display: inline-block;
+    color: $tomatoRed;
+    text-align: center;
+    margin-top: 5px;
+    font-size: 12px;
+  }
+
+  button.button-form {
+    background-color: $gold;
+    color: $midnightBlue;
+    font-size: 18px;
+    font-weight: 700;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    margin-top: 10px;
+    border: 0;
+    outline: none;
+    text-transform: uppercase;
+  }
+
+  .hideOn {
+    display: none;
+
+    &.hideOff {
+      display: block;
+    }
+  }
+}

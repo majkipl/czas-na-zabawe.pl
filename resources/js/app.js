@@ -5,3 +5,11 @@
  */
 
 require('./bootstrap');
+
+require('owl.carousel');
+
+require('malihu-custom-scrollbar-plugin')($);
+require('./plugins/jquery.selectbox');
+require('./plugins/bootstrap-datetimepicker.min');
+
+require('./starter');

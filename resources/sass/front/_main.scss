@@ -1,0 +1,229 @@
+body {
+    color: $midnightBlue;
+    font-family: $cairo;
+    font-size: 16px;
+    line-height: 1.2;
+    background-color: $darkNavy;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-weight: 700;
+    margin-bottom: auto;
+}
+
+h1, .h1 {
+    font-size: 48px;
+}
+
+h2, .h2 {
+    font-size: 36px;
+}
+
+h3, .h3 {
+    font-size: 30px;
+}
+
+h4, .h4 {
+    font-size: 24px;
+}
+
+h5, .h5 {
+    font-size: 20px;
+}
+
+h6, .h6 {
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+    &:focus, &:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+p, li {
+    font-size: 16px;
+}
+
+img {
+    max-width: 100%;
+}
+
+* {
+    outline: none;
+}
+
+section {
+    background-color: $white;
+    overflow: hidden;
+
+    .wrap {}
+
+    .container {
+        min-height: 320px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        position: relative;
+        z-index: 3;
+    }
+}
+
+input {
+    border: 1px solid $lightGray2;
+    width: calc(100% - 30px);
+    background: transparent;
+    box-shadow: none;
+    line-height: 18px;
+    padding: 14px 15px;
+    height: 18px;
+    text-align: left;
+    margin: 0;
+    transition: all 0.5s ease;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    font-weight: 400;
+    font-size: 16px;
+    color: $black;
+}
+
+textarea {
+    border: 1px solid $lightGray2;
+    width: 100%;
+    background: transparent;
+    box-shadow: none;
+    line-height: 18px;
+    padding: 10px 15px;
+    height: 188px;
+    text-align: left;
+    font-weight: 400;
+    max-width: 100%;
+    transition: all 0.5s ease;
+    resize: none;
+    font-size: 15px;
+    color: $black;
+}
+
+input:focus, textarea:focus {
+    box-shadow: 0 0 20px 7px $boxShadowColor;
+}
+
+input[placeholder] {
+    &::-webkit-input-placeholder, &:-moz-placeholder, &::-moz-placeholder, &:-ms-input-placeholder {
+        color: $black;
+        font-weight: 400;
+        text-align: left;
+        opacity: 1;
+    }
+}
+
+textarea {
+    &::-webkit-input-placeholder, &:-moz-placeholder, &::-moz-placeholder, &:-ms-input-placeholder {
+        color: $black;
+        font-weight: 400;
+        text-align: left;
+        opacity: 1;
+    }
+}
+
+.error-post:not(:empty) {
+    width: 100%;
+    display: inline-block;
+    color: $tomatoRed;
+    text-align: center;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.cta-button {
+    background-color: $gold;
+    color: $midnightBlue;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 15px;
+    text-align: center;
+    margin-top: 10px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    display: inline-block;
+    text-transform: uppercase;
+
+    &.cta-button-w {
+        border: 1px solid $gold;
+        color: $midnightBlue;
+        background-color: transparent;
+        font-size: 18px;
+    }
+}
+
+.c-table {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.c-row {
+    display: table-row;
+}
+
+.c-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.scroll-to-top {
+    background-color: $gold;
+    color: $midnightBlue;
+    position: fixed;
+    bottom: -78px;
+    right: 30px;
+    z-index: 8;
+    font-size: 36px;
+    height: 66px;
+    line-height: 1;
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    padding: 15px;
+
+    &.show-me {
+        bottom: 78px;
+    }
+}
+
+body .hamburger {
+    padding-right: 0;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+@media (max-width: 576px) {
+    h1, .h1 {
+        font-size: 36px;
+    }
+
+    h2, .h2 {
+        font-size: 27px;
+    }
+
+    h3, .h3 {
+        font-size: 22px;
+    }
+
+    h4, .h4 {
+        font-size: 18px;
+    }
+
+    h5, .h5, h6, .h6 {
+        font-size: 16px;
+    }
+}
