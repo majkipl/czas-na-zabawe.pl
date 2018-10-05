@@ -133,7 +133,7 @@ const starter = {
                 } else {
                     $(this).addClass('is_active');
                     $('#form .hideOn').fadeIn(500);
-                    $('#i_want').val(1);
+                    $('#i_want').val('yes');
                 }
 
                 return false;
@@ -198,8 +198,6 @@ const starter = {
                             return starter.main.validator.isLegal(item);
                         case 'legal_3':
                             return starter.main.validator.isLegal(item);
-                        case 'legal_4':
-                            return starter.main.validator.isLegal(item);
                         case 'title':
                             return iWant ? starter.main.validator.isName(value, 'Tytuł zgłoszenia') : true;
                         case 'message':
@@ -258,7 +256,7 @@ const starter = {
             });
 
             $(document).on('submit', '#form form', function () {
-                $('.input, .textarea, .checkbox, .file').trigger('change');
+                // $('.input, .textarea, .checkbox, .file').trigger('change');
 
                 if (Object.keys(starter._var.error).length === 0) {
                     const fields = starter.getFields($(this).closest('form'));
@@ -552,6 +550,38 @@ const starter = {
         },
     },
 
+    getFields: function ($form) {
+        const inputs = $form.find('.input');
+        const textareas = $form.find('.textarea');
+        const checkboxes = $form.find('.checkbox');
+        const files = $form.find('.file');
+        const fields = {};
+
+        $.each(inputs, function (index, item) {
+            fields[$(item).attr('name')] = $(item).val();
+        });
+
+        $.each(textareas, function (index, item) {
+            fields[$(item).attr('name')] = $(item).val();
+        });
+
+        $.each(checkboxes, function (index, item) {
+            if ($(item).prop('checked')) {
+                fields[$(item).attr('name')] = $(item).val();
+            }
+        });
+
+        $.each(files, function (index, item) {
+            if (item.files[0]) {
+                fields[$(item).attr('name')] = item.files[0];
+            }
+        })
+
+        fields['_token'] = $form.find('input[name=_token]').val();
+
+        return fields;
+    },
+
     datepicker: {
         init: function () {
             if ($('input#birthday').length) {
@@ -565,38 +595,6 @@ const starter = {
             }
         }
     },
-
-    // datepicker: {
-    //     init: function () {
-    //         if ($('input#birthday').length) {
-    //             const current_timestamp = Math.floor(Date.now() / 1000);
-    //             const max_timestamp = current_timestamp - (13 * 365 * 24 * 60 * 60);
-    //
-    //             $('#birthday').datetimepicker({
-    //                 format: 'DD-MM-YYYY',
-    //                 inline: true,
-    //                 locale: 'pl',
-    //                 maxDate: new Date(max_timestamp * 1000),
-    //             });
-    //
-    //             $('input#firstname').focus();
-    //
-    //             const today = new Date();
-    //             const dd = today.getDate();
-    //             const mm = today.getMonth() + 1; //January is 0!
-    //             const yyyy = today.getFullYear();
-    //
-    //             if (dd > 9)
-    //                 today_string = dd + '-' + mm + '-' + yyyy;
-    //             else
-    //                 today_string = '0' + dd + '-' + mm + '-' + yyyy;
-    //
-    //             if (today_string == $('#birthday').val())
-    //                 $('#birthday').val('');
-    //         }
-    //         ;
-    //     }
-    // },
 
     effects: {
         hideLoader: function () {

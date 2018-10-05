@@ -1759,7 +1759,7 @@ var starter = {
         } else {
           jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('is_active');
           jquery__WEBPACK_IMPORTED_MODULE_0___default()('#form .hideOn').fadeIn(500);
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()('#i_want').val(1);
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('#i_want').val('yes');
         }
         return false;
       });
@@ -1815,8 +1815,6 @@ var starter = {
               return starter.main.validator.isLegal(item);
             case 'legal_3':
               return starter.main.validator.isLegal(item);
-            case 'legal_4':
-              return starter.main.validator.isLegal(item);
             case 'title':
               return iWant ? starter.main.validator.isName(value, 'Tytuł zgłoszenia') : true;
             case 'message':
@@ -1869,7 +1867,8 @@ var starter = {
         return false;
       });
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('submit', '#form form', function () {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.input, .textarea, .checkbox, .file').trigger('change');
+        // $('.input, .textarea, .checkbox, .file').trigger('change');
+
         if (Object.keys(starter._var.error).length === 0) {
           var fields = starter.getFields(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).closest('form'));
           var url = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).closest('form').attr('action');
@@ -2148,6 +2147,31 @@ var starter = {
       }
     }
   },
+  getFields: function getFields($form) {
+    var inputs = $form.find('.input');
+    var textareas = $form.find('.textarea');
+    var checkboxes = $form.find('.checkbox');
+    var files = $form.find('.file');
+    var fields = {};
+    jquery__WEBPACK_IMPORTED_MODULE_0___default().each(inputs, function (index, item) {
+      fields[jquery__WEBPACK_IMPORTED_MODULE_0___default()(item).attr('name')] = jquery__WEBPACK_IMPORTED_MODULE_0___default()(item).val();
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default().each(textareas, function (index, item) {
+      fields[jquery__WEBPACK_IMPORTED_MODULE_0___default()(item).attr('name')] = jquery__WEBPACK_IMPORTED_MODULE_0___default()(item).val();
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default().each(checkboxes, function (index, item) {
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(item).prop('checked')) {
+        fields[jquery__WEBPACK_IMPORTED_MODULE_0___default()(item).attr('name')] = jquery__WEBPACK_IMPORTED_MODULE_0___default()(item).val();
+      }
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default().each(files, function (index, item) {
+      if (item.files[0]) {
+        fields[jquery__WEBPACK_IMPORTED_MODULE_0___default()(item).attr('name')] = item.files[0];
+      }
+    });
+    fields['_token'] = $form.find('input[name=_token]').val();
+    return fields;
+  },
   datepicker: {
     init: function init() {
       if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('input#birthday').length) {
@@ -2161,38 +2185,6 @@ var starter = {
       }
     }
   },
-  // datepicker: {
-  //     init: function () {
-  //         if ($('input#birthday').length) {
-  //             const current_timestamp = Math.floor(Date.now() / 1000);
-  //             const max_timestamp = current_timestamp - (13 * 365 * 24 * 60 * 60);
-  //
-  //             $('#birthday').datetimepicker({
-  //                 format: 'DD-MM-YYYY',
-  //                 inline: true,
-  //                 locale: 'pl',
-  //                 maxDate: new Date(max_timestamp * 1000),
-  //             });
-  //
-  //             $('input#firstname').focus();
-  //
-  //             const today = new Date();
-  //             const dd = today.getDate();
-  //             const mm = today.getMonth() + 1; //January is 0!
-  //             const yyyy = today.getFullYear();
-  //
-  //             if (dd > 9)
-  //                 today_string = dd + '-' + mm + '-' + yyyy;
-  //             else
-  //                 today_string = '0' + dd + '-' + mm + '-' + yyyy;
-  //
-  //             if (today_string == $('#birthday').val())
-  //                 $('#birthday').val('');
-  //         }
-  //         ;
-  //     }
-  // },
-
   effects: {
     hideLoader: function hideLoader() {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('#loader').fadeOut();
