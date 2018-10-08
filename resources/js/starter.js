@@ -148,6 +148,11 @@ const starter = {
 
                 return false;
             });
+
+            $(document).on('click', '#contact a.send', function () {
+                $(this).closest('form').submit();
+                return false;
+            });
         },
         onChange: function () {
             $(document).on('change', '.input, .textarea, .checkbox, .file', function () {
@@ -180,6 +185,8 @@ const starter = {
 
                 const valid = () => {
                     switch (name) {
+                        case 'name':
+                            return starter.main.validator.isName(value, 'Imię i nazwisko');
                         case 'firstname':
                             return starter.main.validator.isName(value, 'Imię');
                         case 'lastname':
@@ -198,6 +205,8 @@ const starter = {
                             return starter.main.validator.isLegal(item);
                         case 'legal_3':
                             return starter.main.validator.isLegal(item);
+                        case 'legal_5':
+                            return starter.main.validator.isLegal(item);
                         case 'title':
                             return iWant ? starter.main.validator.isName(value, 'Tytuł zgłoszenia') : true;
                         case 'message':
@@ -208,6 +217,8 @@ const starter = {
                             return iWant ? starter.main.validator.isImgTip(item, 'Zdjęcie porady') : true;
                         case 'img_receipt':
                             return starter.main.validator.isFile(item, 'Zdjęcie paragonu');
+                        case 'contact_message':
+                            return starter.main.validator.isMessage(value, 'Wiadomość');
                         default:
                             return true;
                     }
@@ -225,38 +236,59 @@ const starter = {
 
         onSubmit: function () {
             $(document).on('submit', '#formContact form', function () {
-                const fields = starter.getFields($(this).closest('form'));
-                const url = $(this).closest('form').attr('action');
+                $('.input, .textarea, .checkbox, .file').trigger('change');
 
-                axios({
-                    method: 'post',
-                    url: url,
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    data: fields,
-                }).then(function (response) {
-                    $('#contact h3').html(response.data.results.message);
-                    $('#contact .form').hide();
-                }).catch(function (error) {
-                    $(`.error-post`).text('');
+                if (Object.keys(starter._var.error).length === 0) {
+                    const fields = starter.getFields($(this).closest('form'));
+                    const url = $(this).closest('form').attr('action');
+                    const formData = new FormData();
 
-                    if (error.response) {
-                        Object.keys(error.response.data.errors).map((item) => {
-                            $(`.error-${item}`).text(error.response.data.errors[item][0]);
-                        });
-                    } else if (error.request) {
-                        console.log(error.request);
-                    } else {
-                        console.log('Error', error.message);
+                    for (const field in fields) {
+                        formData.append(field, fields[field]);
                     }
-                });
+
+                    axios({
+                        method: 'post',
+                        url: url,
+                        headers: {
+                            'content-type': 'multipart/form-data',
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        data: formData,
+                    }).then(function (response) {
+                        $('#contact h3').html(response.data.results.message);
+                        $('#contact .form').hide();
+                    }).catch(function (error) {
+                        $(`.error-post`).text('');
+
+                        if (error.response) {
+                            Object.keys(error.response.data.errors).map((item) => {
+                                $(`.error-${item}`).text(error.response.data.errors[item][0]);
+                            });
+                        } else if (error.request) {
+                            console.log(error.request);
+                        } else {
+                            console.log('Error', error.message);
+                        }
+                    });
+                } else {
+                    $('.error-post').text('');
+                    for (let key in starter._var.error) {
+                        if (starter._var.error.hasOwnProperty(key)) {
+                            let value = starter._var.error[key];
+                            $('.error-' + key).text(value);
+                        }
+                    }
+                }
+
+
+
 
                 return false;
             });
 
             $(document).on('submit', '#form form', function () {
-                // $('.input, .textarea, .checkbox, .file').trigger('change');
+                $('.input, .textarea, .checkbox, .file').trigger('change');
 
                 if (Object.keys(starter._var.error).length === 0) {
                     const fields = starter.getFields($(this).closest('form'));
@@ -502,7 +534,7 @@ const starter = {
                 const file = $('input#img_tip');
 
                 if (file[0].files[0]) {
-                    if( value === "" ) {
+                    if (value === "") {
                         return true;
                     } else {
                         return `Twoje zgłoszenie może zawierać tekst ze zdjęciem lub tekst z video.`;

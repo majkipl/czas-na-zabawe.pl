@@ -1,4 +1,4 @@
 Imię i nazwisko: {{ $details['name'] }}
 Email: {{ $details['email'] }}
 
-{{ $details['message'] }}
+{{ $details['contact_message'] }}

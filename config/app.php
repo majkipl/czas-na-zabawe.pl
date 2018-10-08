@@ -177,6 +177,7 @@ return [
 
         App\Providers\ApplicationProvider::class,
         App\Providers\VideoProvider::class,
+        \App\Providers\ContactProvider::class
 
     ],
 

@@ -13,6 +13,7 @@
 
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\ConfirmController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CookiesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImprintController;
@@ -40,3 +41,4 @@ Route::get('/podziekowania/konkurs', [ThxController::class, 'contest'])->name('f
 Route::get('/podziekowania/promocja', [ThxController::class, 'promotion'])->name('front.thx.promotion');
 
 Route::get('/potwierdzam/{application}/{token}', [ConfirmController::class, 'application'])->name('front.confirm.application');
+Route::post('/kontakt/wyslij', [ContactController::class, 'send'])->name('front.contact.send');

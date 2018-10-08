@@ -1770,6 +1770,10 @@ var starter = {
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('#form form#save').submit();
         return false;
       });
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('click', '#contact a.send', function () {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).closest('form').submit();
+        return false;
+      });
     },
     onChange: function onChange() {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('change', '.input, .textarea, .checkbox, .file', function () {
@@ -1797,6 +1801,8 @@ var starter = {
         }
         var valid = function valid() {
           switch (name) {
+            case 'name':
+              return starter.main.validator.isName(value, 'Imię i nazwisko');
             case 'firstname':
               return starter.main.validator.isName(value, 'Imię');
             case 'lastname':
@@ -1815,6 +1821,8 @@ var starter = {
               return starter.main.validator.isLegal(item);
             case 'legal_3':
               return starter.main.validator.isLegal(item);
+            case 'legal_5':
+              return starter.main.validator.isLegal(item);
             case 'title':
               return iWant ? starter.main.validator.isName(value, 'Tytuł zgłoszenia') : true;
             case 'message':
@@ -1825,6 +1833,8 @@ var starter = {
               return iWant ? starter.main.validator.isImgTip(item, 'Zdjęcie porady') : true;
             case 'img_receipt':
               return starter.main.validator.isFile(item, 'Zdjęcie paragonu');
+            case 'contact_message':
+              return starter.main.validator.isMessage(value, 'Wiadomość');
             default:
               return true;
           }
@@ -1840,35 +1850,50 @@ var starter = {
     },
     onSubmit: function onSubmit() {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('submit', '#formContact form', function () {
-        var fields = starter.getFields(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).closest('form'));
-        var url = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).closest('form').attr('action');
-        axios({
-          method: 'post',
-          url: url,
-          headers: {
-            'X-CSRF-TOKEN': jquery__WEBPACK_IMPORTED_MODULE_0___default()('meta[name="csrf-token"]').attr('content')
-          },
-          data: fields
-        }).then(function (response) {
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()('#contact h3').html(response.data.results.message);
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()('#contact .form').hide();
-        })["catch"](function (error) {
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()(".error-post").text('');
-          if (error.response) {
-            Object.keys(error.response.data.errors).map(function (item) {
-              jquery__WEBPACK_IMPORTED_MODULE_0___default()(".error-".concat(item)).text(error.response.data.errors[item][0]);
-            });
-          } else if (error.request) {
-            console.log(error.request);
-          } else {
-            console.log('Error', error.message);
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.input, .textarea, .checkbox, .file').trigger('change');
+        if (Object.keys(starter._var.error).length === 0) {
+          var fields = starter.getFields(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).closest('form'));
+          var url = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).closest('form').attr('action');
+          var formData = new FormData();
+          for (var field in fields) {
+            formData.append(field, fields[field]);
           }
-        });
+          axios({
+            method: 'post',
+            url: url,
+            headers: {
+              'content-type': 'multipart/form-data',
+              'X-CSRF-TOKEN': jquery__WEBPACK_IMPORTED_MODULE_0___default()('meta[name="csrf-token"]').attr('content')
+            },
+            data: formData
+          }).then(function (response) {
+            jquery__WEBPACK_IMPORTED_MODULE_0___default()('#contact h3').html(response.data.results.message);
+            jquery__WEBPACK_IMPORTED_MODULE_0___default()('#contact .form').hide();
+          })["catch"](function (error) {
+            jquery__WEBPACK_IMPORTED_MODULE_0___default()(".error-post").text('');
+            if (error.response) {
+              Object.keys(error.response.data.errors).map(function (item) {
+                jquery__WEBPACK_IMPORTED_MODULE_0___default()(".error-".concat(item)).text(error.response.data.errors[item][0]);
+              });
+            } else if (error.request) {
+              console.log(error.request);
+            } else {
+              console.log('Error', error.message);
+            }
+          });
+        } else {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.error-post').text('');
+          for (var key in starter._var.error) {
+            if (starter._var.error.hasOwnProperty(key)) {
+              var value = starter._var.error[key];
+              jquery__WEBPACK_IMPORTED_MODULE_0___default()('.error-' + key).text(value);
+            }
+          }
+        }
         return false;
       });
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('submit', '#form form', function () {
-        // $('.input, .textarea, .checkbox, .file').trigger('change');
-
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.input, .textarea, .checkbox, .file').trigger('change');
         if (Object.keys(starter._var.error).length === 0) {
           var fields = starter.getFields(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).closest('form'));
           var url = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).closest('form').attr('action');

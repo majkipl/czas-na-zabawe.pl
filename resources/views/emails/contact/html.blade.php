@@ -12,6 +12,6 @@
 <body>
 <p>Imię i nazwisko: {{ $details['name'] }}</p>
 <p>Email: {{ $details['email'] }}</p>
-<p>{{ $details['message'] }}</p>
+<p>{{ $details['contact_message'] }}</p>
 </body>
 </html>
