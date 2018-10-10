@@ -15,7 +15,7 @@ class ApplicationController extends Controller
 
     public function show(int $id)
     {
-        $application = Application::with(['category','product','whence','shop'])
+        $application = Application::with(['whence'])
             ->where('id','=',$id)->first();
 
         return view('panel/application/show', [

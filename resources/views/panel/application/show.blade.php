@@ -29,52 +29,28 @@
                                     <td>{{ $application->birthday }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Adres: </td>
-                                    <td>{{ $application->address }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Miasto: </td>
-                                    <td>{{ $application->city }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Kod pocztowy: </td>
-                                    <td>{{ $application->zip }}</td>
-                                </tr>
-                                <tr>
                                     <td>Adres e-mail: </td>
                                     <td>{{ $application->email }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Telefon: </td>
-                                    <td>{{ $application->phone }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Numer dowodu sprzedaży: </td>
-                                    <td>{{ $application->receiptnb }}</td>
                                 </tr>
                                 <tr>
                                     <td>Zdjęcie dowodu sprzedaży: </td>
                                     <td><img src="{{ asset('storage/' . $application->img_receipt) }}" alt="Dowód zakupu dla zgłoszenia: {{ $application->id }}" /></td>
                                 </tr>
                                 <tr>
-                                    <td>Zdjęcie kodu ean: </td>
-                                    <td><img src="{{ asset('storage/' . $application->img_ean) }}" alt="Kod ean dla zgłoszenia: {{ $application->id }}" /></td>
-                                </tr>
-                                <tr>
                                     <td>Legal 1: </td>
-                                    <td>{{ $application->legal_1 }}</td>
+                                    <td>{{ $application->legal_1 ? 'TAK' : 'NIE' }}</td>
                                 </tr>
                                 <tr>
                                     <td>Legal 2: </td>
-                                    <td>{{ $application->legal_2 }}</td>
+                                    <td>{{ $application->legal_2 ? 'TAK' : 'NIE' }}</td>
                                 </tr>
                                 <tr>
                                     <td>Legal 3: </td>
-                                    <td>{{ $application->legal_3 }}</td>
+                                    <td>{{ $application->legal_3 ? 'TAK' : 'NIE' }}</td>
                                 </tr>
                                 <tr>
                                     <td>Legal 4: </td>
-                                    <td>{{ $application->legal_4 }}</td>
+                                    <td>{{ $application->legal_4 ? 'TAK' : 'NIE' }}</td>
                                 </tr>
                                 </tbody>
                             </table>
