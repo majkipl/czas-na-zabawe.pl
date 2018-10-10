@@ -1,6 +1,6 @@
 @import "bootstrap/scss/bootstrap";
-@import "owl.carousel/dist/assets/owl.carousel.css";
-@import "owl.carousel/dist/assets/owl.theme.default.css";
+@import "owl.carousel/dist/assets/owl.carousel.min.css";
+@import "owl.carousel/dist/assets/owl.theme.default.min.css";
 @import "aos/src/sass/aos";
 @import "./plugins/bootstrap-datetimepicker";
 
@@ -35,4 +35,3 @@
 @import "front/tip";
 @import "front/error";
 @import "front/thx";
-
