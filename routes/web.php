@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+/* FRONTEND */
+
 Route::get('/', [HomeController::class, 'index'])->name('front.home');
 Route::get('/nagrody', [HomeController::class, 'index'])->name('front.home.awards');
 Route::get('/kontakt', [HomeController::class, 'index'])->name('front.home.contact');
@@ -42,3 +44,14 @@ Route::get('/podziekowania/promocja', [ThxController::class, 'promotion'])->name
 
 Route::get('/potwierdzam/{application}/{token}', [ConfirmController::class, 'application'])->name('front.confirm.application');
 Route::post('/kontakt/wyslij', [ContactController::class, 'send'])->name('front.contact.send');
+
+/* BACKEND */
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/panel', [\App\Http\Controllers\Panel\HomeController::class, 'index'])->name('back.home');
+
+    Route::middleware(['can:isAdmin'])->group(function () {
+        Route::get('/panel/zgloszenie', [\App\Http\Controllers\Panel\ApplicationController::class, 'index'])->name('back.application');
+        Route::get('/panel/zgloszenie/{promotion}', [\App\Http\Controllers\Panel\ApplicationController::class, 'show'])->name('back.application.show');
+    });
+});
