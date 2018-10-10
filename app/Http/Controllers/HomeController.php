@@ -10,7 +10,7 @@ class HomeController extends Controller
     {
         return view('home/index', [
             'isEndPromotion' => false,
-            'isEndContest' => false,
+            'isEndContest' => true,
             'isEndResult' => false,
             'weeks' => []
         ]);

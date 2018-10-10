@@ -6,22 +6,7 @@
     @include('home.sections.steps')
     @include('home.sections.prizes')
 
-    @if($isEndContest)
-        @if($isEndPromotion)
-            @if($isEndResult)
-{{--                todo: @include('home.sections.take-end-result')--}}
-{{--                todo: @include('home.sections.winner-end-result')--}}
-            @else
-{{--                todo: @include('home.sections.take-end-promotion')--}}
-{{--                todo: @include('home.sections.winner-end-promotion')--}}
-            @endif
-        @else
-{{--            todo: @include('home.sections.take-end-contest')--}}
-{{--            todo: @include('home.sections.winner-end-contest')--}}
-        @endif
-    @else
-        @include('home.sections.take')
-    @endif
+    @include('home.sections.take')
 
     @include('home.sections.statute')
     @include('home.sections.applications')
