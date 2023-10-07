@@ -122,6 +122,7 @@ fabric.properties
 /public/storage
 /storage/*.key
 /vendor
+storage/*.key
 .env
 .env.backup
 .phpunit.result.cache
