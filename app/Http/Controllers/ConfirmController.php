@@ -21,6 +21,5 @@ class ConfirmController extends Controller
         } else {
             return redirect()->route('front.thx.promotion');
         }
-
     }
 }

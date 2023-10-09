@@ -421,8 +421,6 @@ const starter = {
             if ((attri !== undefined) && ($(attri).length > 0)) {
                 const offset = Math.abs($(attri).position().top) - $('section#top').height() + 38;
 
-                console.log(offset);
-
                 $('html, body').animate({scrollTop: offset}, 1000);
             }
 

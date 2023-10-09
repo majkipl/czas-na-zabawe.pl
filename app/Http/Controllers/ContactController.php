@@ -39,8 +39,6 @@ class ContactController extends Controller
                 Response::HTTP_OK
             );
         } catch (Exception $e) {
-
-            die($e);
             return response()->json(
                 [
                     'errors' => [
